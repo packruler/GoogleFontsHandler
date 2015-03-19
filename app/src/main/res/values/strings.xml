@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Google Fonts Service</string>
+
+
+    <string name="google_fonts_service">Grants access to Google Fonts Service made by Packruler Creations for accessing and download fonts from Google Fonts</string>
+</resources>

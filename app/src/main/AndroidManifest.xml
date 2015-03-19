@@ -1,0 +1,32 @@
+<manifest
+    package="com.packruler.googlefontsservice"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <permission android:name="com.packruler.googlefontsservice.SERVICE"
+                android:label="Packruler Creation's Google Fonts Service Access"
+                android:description="@string/google_fonts_service"
+                android:protectionLevel="normal"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:permission="com.packruler.googlefontsservice.SERVICE">
+
+        <service
+            android:name=".GoogleFontsService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.packruler.googlefontsservice.SERVICE"/>
+            </intent-filter>
+        </service>
+
+    </application>
+
+
+
+</manifest>
