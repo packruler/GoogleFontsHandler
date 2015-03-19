@@ -8,8 +8,6 @@ import com.packruler.googlefontsservice.LocalWebfont;
 
 interface IGoogleFontsService {
 
-    Map updateSort(String sortOrder);
-
     Map updateFonts();
 
     Map getAllFonts();

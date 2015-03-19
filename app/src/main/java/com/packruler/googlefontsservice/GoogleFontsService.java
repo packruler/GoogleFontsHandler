@@ -318,29 +318,6 @@ public class GoogleFontsService extends Service {
     }
 
     /**
-     * Re-retrieves Google WebFonts in a new sort order
-     *
-     * @param sortOrder
-     *         Options are:
-     *         alpha - Sort the list alphabetically
-     *         date - Sort the list by date added (most recent font added or updated first)
-     *         popularity - Sort the list by popularity (most popular family first)
-     *         style - Sort the list by number of styles available (family with most styles first)
-     *         trending - Sort the list by families seeing growth in usage (family seeing the most
-     *         growth first)
-     *
-     * @return {@link #updateFonts()} sorted in specified order
-     */
-    public HashMap<String, Map<String, LocalWebfont>> updateSort(String sortOrder) {
-        if (sortOrder.equals(sortOrderString))
-            return allFonts;
-        sortOrderString = sortOrder;
-
-        sharedPreferences.edit().putString(ALL_FONTS, sortOrder).apply();
-        return updateFonts();
-    }
-
-    /**
      * Update data of Google Fonts and store local cache of information
      *
      * @return {@link java.util.HashMap}<{@link java.lang.String}, {@link
@@ -686,11 +663,6 @@ public class GoogleFontsService extends Service {
     }
 
     public IGoogleFontsService.Stub mBinder = new IGoogleFontsService.Stub() {
-        @Override
-        public HashMap<String, Map<String, LocalWebfont>> updateSort(String sortOrder) throws RemoteException {
-            return GoogleFontsService.this.updateSort(sortOrder);
-        }
-
         @Override
         public HashMap<String, Map<String, LocalWebfont>> updateFonts() throws RemoteException {
             return GoogleFontsService.this.updateFonts();
